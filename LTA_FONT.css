@@ -1,0 +1,6 @@
+@font-face {  
+    src: url(LTAIdentity_Medium.ttf) format("truetype");
+}
+div.FontMarket { 
+    font-family:  Market Deco;
+}

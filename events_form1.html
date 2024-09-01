@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script src="script/jquery.min.js"></script>
+  <script src="script/bootstrap.js"></script>
+  <link href="script/bootstrap.css" rel="stylesheet" />
+  <link href="script/events.css" rel="stylesheet" />
+  <link href="img/FaviconV3.svg" rel="icon">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/LogoV3.svg" alt="logo" class="d-inline-block" style="max-height:3rem">
+          <span class="d-none d-sm-inline-block align-middle">Byte Buster<small class="d-block lh-xs fs-7">Coding Club</small></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navlinks">
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="aboutus.html">Abouts Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="memberspotlight.html">Members Spotlight</a></li>
+            <li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Past Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Index</a></li>
+            <li class="nav-item"><a class="nav-link active" href="events_form1.html">Form Signup</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <form id="myForm" action="submit_action.php" method="post">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br>
+      <button type="submit">Submit</button> 
+    </form>
+</body>
+</html>
