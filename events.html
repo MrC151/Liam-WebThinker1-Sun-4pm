@@ -18,6 +18,115 @@
       padding: 5px;
     }
   </style>
+  <style>
+
+        .btn-open-popup {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: green;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-open-popup:hover {
+            background-color: #4caf50;
+        }
+
+        .overlay-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-box {
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            width: 320px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+            text-align: left;
+        }
+
+        .form-input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-submit,
+        .btn-close-popup {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-submit {
+            background-color: green;
+            color: #fff;
+        }
+
+        .btn-close-popup {
+            margin-top: 12px;
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .btn-submit:hover,
+        .btn-close-popup:hover {
+            background-color: #4caf50;
+        }
+
+        /* Keyframes for fadeInUp animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation for popup */
+        .overlay-container.show {
+            display: flex;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
   <header>
@@ -74,7 +183,9 @@
                 <tr>
                   <th class="col-1">2 Sep 2023</th>
                   <th class="col-2">12pm, Singapore Time</th>
-                  <th class="col-9"><div><h4 class="bold">Code Jam</h4></div><p>Gear up for an exhilarating 48-hour coding competition. Are you up for the challenge?</p><button type="button" class="btn btn-success"><a href="events_form1.html">Register Now</button></a>
+                  <th class="col-9"><div><h4 class="bold">Code Jam</h4></div><p>Gear up for an exhilarating 48-hour coding competition. Are you up for the challenge?</p><button class="btn-open-popup" onclick="togglePopup()">
+                    Open Popup Form
+                    </button>
 </th>
                 </tr>
             </thread>
@@ -125,6 +236,63 @@
 
     </div>
   </article>
+  <div id="popupOverlay" 
+         class="overlay-container">
+        <div class="popup-box">
+            <h2 style="color: green;">Popup Form</h2>
+            <form class="form-container">
+                <label class="form-label" 
+                       for="name">
+                  Username:
+                  </label>
+                <input class="form-input" type="text" 
+                       placeholder="Enter Your Username" 
+                       id="name" name="name" required>
+
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-input"
+                       type="email" 
+                       placeholder="Enter Your Email"
+                       id="email" 
+                       name="email" required>
+
+                <button class="btn-submit" 
+                        type="submit"
+                        onclick="formSubmit()">
+                  Submit
+                  </button>
+            </form>
+
+            <button class="btn-close-popup" 
+                    onclick="togglePopup()">
+              Close
+              </button>
+        </div>
+    </div>
+    <div id="FinishedPopup" 
+         class="overlay-container">
+        <div class="popup-box">
+            <h2 style="color: green;">Submitted</h2>
+            <h1 style="color: green;">Form Submitted!</h1>
+            <button class="btn-close-popup" 
+                    onclick="togglePopup()">
+              Close
+              </button>
+        </div>
+    </div>
+
+    <script>
+        function togglePopup() {
+            const overlay = document.getElementById('popupOverlay');
+            overlay.classList.toggle('show');
+        }
+    </script>
+    <script>
+      function formSubmit() {
+          const overlay = document.getElementById('FinishedPopup');
+          overlay.classList.toggle('show');
+      }
+  </script>
   <!-- End of coding region -->
   <footer class="bg-dark text-light">
     <div class="container py-2 pb-4">XXX</div>
