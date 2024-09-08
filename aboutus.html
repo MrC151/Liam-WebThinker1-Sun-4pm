@@ -17,6 +17,7 @@
 
 	<!-- Head Task 3: Add in icon img/favicon-bbcc.png -->
 	<link href="img/FaviconV3.svg" rel="icon">
+	<link href="script/clock.css" rel="stylesheet">
 
 </head>
 
@@ -40,6 +41,20 @@
 						<li class="nav-itme"><a class="nav-link" href="memberspotlight.html">Members spotlight</a></li>
 						<!-- Add in the correct link -->
 					</ul>
+					<div class="clock" id="clock">00:00:00</div>
+					<div class="dropdown me-2">
+					  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+						  Select Timezone
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="timezone-select">
+						  <li><a class="dropdown-item" href="#" data-value="local">Local Time</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="UTC">UTC</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="America/New_York">New York (EST)</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="Europe/London">London (GMT)</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="Asia/Tokyo">Tokyo (JST)</a></li>
+					  </ul>
+				  </div>
+					<button id="toggle-format">Switch to 12-Hour</button>
 				</div>
 			</div>
 		</nav>
@@ -182,6 +197,16 @@
 		</div>
 		</div>
 	</article>
+	<script src="script/clock.js"></script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+      <script src="script/timer.js"></script>
+      <div class="timer-container">
+
+        <div id="clock">
+            <span id="minutes">06</span> minutes
+            <span id="seconds">00</span> seconds
+        </div>
+    </div>
 	<!-- End of coding region -->
 	<footer class="bg-dark text-light">
 		<div class="container py-2 pb-4">Done by Computhink Kids SG.</div>

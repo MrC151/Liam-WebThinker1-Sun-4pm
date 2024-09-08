@@ -1,0 +1,10 @@
+
+
+.timer-container {
+    text-align: center;
+}
+
+#timer {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
