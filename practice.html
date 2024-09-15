@@ -86,8 +86,9 @@
       </nav>
     </header>
     <!-- Here the main container where students should code -->
-    <article class="min-vh-100">
-      <!-- Banner Region -->
+    <!-- <article class="min-vh-100">
+      
+      <--Banner Region -->
       <div id="banner"></div>
       <!-- Page Header -->
       <div class="container pt-4 py-3">
@@ -322,7 +323,7 @@
       <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link active" href="practice.html">Practice</a></li>
         <li class="nav-item"><a class="nav-link" href="aboutus.html">Abouts Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li> -->
         <li class="nav-item"><a class="nav-link" href="index.html">Index</a></li>
         <button class="btn btn-primary">Click me</button>
         <div class="popup" onclick="myFunction()">Click me!
@@ -391,5 +392,62 @@
         </tr>
       </tbody>
     </table>
+    <h1>Welcome to the Website</h1>
+    <p>You will be logged out in <span id="timer">10</span> seconds.</p>
+    <script>
+      let no1 = 6
+      let no2 = 8
+      let no3 = 10
+      console.log(no1*no2*no3)
+
+      let X = 5
+      let Z = 20
+      let Y = 7
+      let W = 2
+      let newnumber = X+Z
+      let newnumber1 = newnumber - 7
+      console.log(newnumber1 / W)
+
+      let credits = 200
+      let minCredits = 10
+      let deductCredits = 1
+      let addCredits = 50
+      const readline = require('readline');
+      const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+      function askQuestion(query) {
+        return new Promise(resolve => rl.question(query, resolve));
+    } 
+    async function main() {
+      let game_used = askQuestion('Are you playing?')
+    }
+      if (game_used == "yes", "Yes") {
+        credits = credits - deductCredits
+        console.log(`Game in play, credits left: ${credits}`)
+      } else if (game_used == "no", "No") {
+        console.log(`No Game Used. Credits left: ${credits}`)
+      } else {
+        console.log("UNKNOWN COMMAND! ??")
+      }
+      
+
+    let XX = 5
+    if (XX > 0) {
+      console.log("POSITIVE")
+    } else if (XX < 0) {
+      console.log("NEGATIVE")
+    } else {
+      console.log("NUMBER IS ZERO")
+    }
+    let ZZ = 7
+    let remainder = 0
+    if (remainder = ZZ % 2) {
+      console.log("ODD")
+    } else {
+      console.log("EVEN")
+    }
+    </script>
   </body>
 </html>

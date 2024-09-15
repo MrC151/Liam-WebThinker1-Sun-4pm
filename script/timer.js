@@ -1,58 +1,60 @@
-// script.js
+// // Function to format time as HH:MM:SS
+// function formatTime(seconds) {
+//     var hours = Math.floor(seconds / 3600);
+//     var minutes = Math.floor((seconds % 3600) / 60);
+//     var secs = seconds % 60;
 
-// DOM elements
-const minutesElement = document.getElementById('minutes');
-const secondsElement = document.getElementById('seconds');
+//     hours = hours < 10 ? '0' + hours : hours;
+//     minutes = minutes < 10 ? '0' + minutes : minutes;
+//     secs = secs < 10 ? '0' + secs : secs;
 
-// Duration for the countdown (6 minutes in seconds)
-const INITIAL_TIME = 360; // 6 minutes
+//     return hours + ':' + minutes + ':' + secs;
+//   }
 
-// Function to get the current time remaining from localStorage or initialize it
-function getTimeRemaining() {
-    const savedTime = localStorage.getItem('countdownTime');
-    return savedTime ? parseInt(savedTime, 10) : INITIAL_TIME;
-}
+//   // Function to start the timer
+//   function startTimer(duration, display) {
+//     var endTime = Date.now() + duration * 1000;
 
-// Function to save the current time remaining to localStorage
-function saveTimeRemaining(time) {
-    localStorage.setItem('countdownTime', time);
-}
+//     function updateTimer() {
+//       var remainingTime = Math.max(0, Math.round((endTime - Date.now()) / 1000));
+      
+//       display.textContent = formatTime(remainingTime);
 
-// Function to update the timer display
-function updateTimer() {
-    const timeRemaining = getTimeRemaining();
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
+//       if (remainingTime <= 0) {
+//         clearInterval(interval);
+//         alert("Time's up! You are being redirected.");
+//         window.location.href = 'https://example.com'; // Redirect to a different URL
+//       } else {
+//         localStorage.setItem('endTime', endTime);
+//       }
+//     }
 
-    minutesElement.textContent = minutes.toString().padStart(2, '0');
-    secondsElement.textContent = seconds.toString().padStart(2, '0');
+//     var interval = setInterval(updateTimer, 1000);
+//     updateTimer(); // Initial call to display the timer immediately
+//   }
 
-    if (timeRemaining <= 0) {
-        clearInterval(countdownInterval);
-        minutesElement.textContent = '00';
-        secondsElement.textContent = '00';
-        // Redirect the user to a different page or perform any action
-        window.location.href = 'https://www.google.com/search?q=rick+roll+youtube+link&rlz=1C1ONGR_enSG1064SG1064&oq=rick+roll+youtube+link&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDI4ODlqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8#'; // Replace with your target URL
-    } else {
-        saveTimeRemaining(timeRemaining - 1); // Save updated time
-    }
-}
+//   // Initialize the timer
+//   window.onload = function () {
+//     var display = document.querySelector('#clock');
+//     var savedEndTime = localStorage.getItem('endTime');
 
-// Function to start the countdown timer
-function startCountdown() {
-    // Clear any existing interval
-    clearInterval(countdownInterval);
+//     if (savedEndTime) {
+//       var endTime = parseInt(savedEndTime, 10);
+//       var remainingTime = Math.max(0, Math.round((endTime - Date.now()) / 1000));
 
-    // Update timer immediately
-    updateTimer();
+//       if (remainingTime <= 0) {
+//         alert("Time's up! You are being redirected.");
+//         window.location.href = 'https://example.com'; // Redirect to a different URL
+//       } else {
+//         startTimer(remainingTime, display);
+//       }
+//     } else {
+//       // If no timer was saved, start a new timer
+//       startTimer(10, display); // 10 seconds for example
+//     }
+//   };
 
-    // Update the timer every second
-    countdownInterval = setInterval(updateTimer, 1000);
-}
-
-// Initialize the countdown timer
-startCountdown();
-
-// Clear the timer if needed (for testing purposes)
-// localStorage.removeItem('countdownTime');
-
+//   // Clear the timer from localStorage when the user is redirected
+//   window.addEventListener('beforeunload', function() {
+//     localStorage.removeItem('endTime');
+//   });

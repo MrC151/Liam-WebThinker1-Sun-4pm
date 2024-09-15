@@ -1,1 +1,23 @@
 /*  */
+    .button-container {
+      text-align: center; /* Optional: Center-aligns the button inside the div */
+      margin: 20px; /* Optional: Adds some margin around the div */
+    }
+    
+    .blue-button {
+      background-color: #007bff; /* Blue color */
+      color: white; /* White text color */
+      border: none; /* Removes default border */
+      padding: 10px 20px; /* Adds padding */
+      text-align: center; /* Centers text */
+      text-decoration: none; /* Removes underline */
+      display: inline-block; /* Ensures it is inline with other elements */
+      font-size: 16px; /* Sets font size */
+      border-radius: 5px; /* Rounds the corners */
+      cursor: pointer; /* Changes cursor to a pointer on hover */
+      transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+    .blue-button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }

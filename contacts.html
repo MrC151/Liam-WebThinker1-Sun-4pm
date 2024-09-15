@@ -11,6 +11,7 @@
 	<link href="script/contacts.css" rel="stylesheet" />
 	<link href="img/FaviconV3.svg" rel="icon">
 	<link href="script/clock.css" rel="stylesheet">
+	<link href="script/contacts.css" rel="stylesheet">
 
 </head>
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
@@ -26,7 +27,7 @@
 					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link" href="aboutus.html">Abouts Us</a></li>
 						<li class="nav-item"><a class="nav-link" href="memberspotlight.html">Members Spotlight</a></li>
-						<li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li>
+						<!-- <li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
 						<li class="nav-item"><a class="nav-link" href="projects.html">Past Projects</a></li>
 						<li class="nav-item"><a class="nav-link active" href="contacts.html">Contact Us</a></li>
@@ -66,21 +67,48 @@
 			</div>
 		</div>
 		<!-- Key section -->
-		<form class="container py-3">
+		<form class="container py-3" id="form">
 			<div class="row gy-3">
-				<!-- Label: Name*
-						 Text Input field -->
-
-				<!-- Label: Email Address*
-						 Email Input field -->
-
-				<!-- Label: Subject*
-						 Text Input field with placeholder text "Enquiry on how to code"-->
-
-				<!-- Label: Subject*
-						 Textarea field with the row attribute of value 5-->
+				<!-- Name Label and Input field -->
+				<div class="col-md-6">
+					<div class="mb-3">
+						<label for="Name" class="form-label">Name:</label>
+						<input id="Name" class="form-control" type="text" name="Name">
+					</div>
+				</div>
+			
+				<!-- Email Address Label and Input field -->
+				<div class="col-md-6">
+					<div class="mb-3">
+						<label for="EmailAddress" class="form-label">Email Address:</label> 
+						<input id="EmailAddress" class="form-control" type="email" name="EmailAddress">
+					</div>
+				</div>
 			</div>
-			<!-- Code a blue "Send" button inside a <div> according to the criteria stated -->
+	
+			<div class="row gy-3">
+				<div class="col-md-12">
+					<div class="mb-3">
+						<label for="Subject" class="form-label">Subject:</label>
+						<input id="Subject" class="form-control" type="text" name="Subject" placeholder="Enquiry on how to code">
+					</div>
+				</div>
+			</div>
+	
+			<!-- Subject Details Textarea -->
+			<div class="row gy-3">
+				<div class="col-md-12">
+					<div class="mb-3">
+						<label for="subjectTextarea" class="form-label">Details:</label>
+						<textarea id="subjectTextarea" class="form-control" name="subjectDetails" rows="5" placeholder="Enter details here"></textarea>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Send Button -->
+			<div class="text-center mt-3">
+				<button type="submit" class="blue-button">Send</button>
+			</div>
 		</form>
 	</article>
 	<script src="script/clock.js"></script>
@@ -88,10 +116,7 @@
       <script src="script/timer.js"></script>
       <div class="timer-container">
 
-        <div id="clock">
-            <span id="minutes">06</span> minutes
-            <span id="seconds">00</span> seconds
-        </div>
+
     </div>
 	<!-- End of coding region -->
 	<footer class="bg-dark text-light"><div class="container py-2 pb-4">Done by Computhink Kids SG.</div></footer>
