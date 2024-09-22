@@ -9,6 +9,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
 	<script src="script/jquery.min.js"></script>
 	<script src="script/bootstrap.js"></script>
+	<script src="script/Login.js"></script>
+
 
 	<!-- Task 2: Add in script for script/bootstrap.js here -->
 
@@ -36,11 +38,12 @@
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span
 						class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navlinks">
-					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+					<ul class="navbar-nav mr-auto mb-2 mb-lg-0 mr-5">
 						<li class="nav-item"><a class="nav-link" href="practice.html">Practice</a></li>
 						<li class="nav-item"><a class="nav-link" href="aboutus.html">Abouts Us</a></li>
 						<!-- <li class="nav-item"><a class="nav-link" href="events (SPECIAL).html">Our main project</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+						<li class="nav-item"><a class="nav-link" href="contacts.html">Contact Us</a></li>
 						<li class="nav-item"><a class="nav-link active" href="index.html">Index</a></li>
 						<li class="nav-itme"><a class="nav-link" href="memberspotlight.html">Members Spotlight</a></li>
 
@@ -49,7 +52,15 @@
 						<!-- add list item for projects.html -->
 						<!-- add list item for contacts.html -->
 					</ul>
-					<div class="clock" id="clock">00:00:00</div>
+
+			<!-- <div>
+				<span class="close" id="closeLogin">&times;</span>
+
+				<button id="loginBtn">Login</button>
+				<button id="registerBtn">Register</button>
+				
+        </div> -->
+					<div class="clock ml-5" id="clock">00:00:00</div>
 					<div class="dropdown me-2">
 					  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
 						  Select Timezone
@@ -64,10 +75,35 @@
 				  </div>
 					<button id="toggle-format">Switch to 12-Hour</button>
 				</div>
+				
 			</div>
 		</nav>
 	</header>
-	<!-- Here the main container where students should code -->
+	<!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h1>Login</h1>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Registration -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeRegister">&times;</span>
+            <h1>Register</h1>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
 	<article class="min-vh-100">
 		<!-- Start Banner Region -->
 		<div id="banner"></div>

@@ -1,4 +1,10 @@
 /*  */
+    #banner {
+      background-image: url('../img/contactus.png');
+      background-size: cover;
+      background-position: center center;
+      height: 40vh;
+    }
     .button-container {
       text-align: center; /* Optional: Center-aligns the button inside the div */
       margin: 20px; /* Optional: Adds some margin around the div */
