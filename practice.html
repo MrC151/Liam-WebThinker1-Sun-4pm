@@ -86,55 +86,20 @@
         </div>
       </nav>
     </header>
+    <ul class="nav nav-pills mb-3">
+      <li class="nav-item">
+        <button class="nav-link rounded-pill active" data-bs-toggle="pill" data-bs-target="#tab1">Scratch</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link rounded-pill" data-bs-toggle="pill" data-bs-target="#tab2">Canvas</button>
+      </li>
+    </ul>
     <!-- Here the main container where students should code -->
     <!-- <article class="min-vh-100">
       
     <form class="container py-3" id="form">
 			<div class="row gy-3">
-				<!-- Name Label and Input field -->
-				<div class="col-md-6">
-					<div class="mb-3">
-						<label for="Name" class="form-label">First Name:</label>
-						<input id="Name" class="form-control" type="text" name="Name">
-					</div>
-				</div>
-			
-				<!-- Email Address Label and Input field -->
-				<div class="col-md-6">
-					<div class="mb-3">
-						<label for="EmailAddress" class="form-label">Last Name:</label> 
-						<input id="EmailAddress" class="form-control" type="email" name="EmailAddress">
-					</div>
-				</div>
-			</div>
-	
-			<div class="row gy-3">
-				<div class="col-md-12">
-					<div class="mb-3">
-						<label for="contactNumber">Contact Number:</label>
-						<input class="form-control" type="number" id="contactNumber">
-            <div class="text-danger d-none" id="contactNumValidation">
-              <p>Please input an actual phone number</p>
-            </div>
-					</div>
-				</div>
-			</div>
-	
-			<!-- Subject Details Textarea -->
-			<div class="row gy-3">
-				<div class="col-md-12">
-					<div class="mb-3">
-						<label for="subjectTextarea" class="form-label">Email:</label>
-						<textarea id="subjectTextarea" class="form-control" name="email" rows="1"></textarea>
-					</div>
-				</div>
-			</div>
-	
-			<!-- Send Button -->
-			<div class="text-center mt-3">
-				<button class="blue-button" onclick="validate()">Send</button>
-			</div>
-		</form>
+        
         <script>
       let no1 = 6
       let no2 = 8

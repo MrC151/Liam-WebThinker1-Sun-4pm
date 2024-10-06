@@ -49,9 +49,26 @@
 		</div>
 		<!-- Key section -->
 		<div class="container py-3 pb-4">
+			<ul class="nav nav-pills mb-3">
+				<li class="nav-item">
+				  <button class="nav-link rounded-pill active" data-bs-toggle="pill" data-bs-target="#scratch">Scratch</button>
+				</li>
+				<li class="nav-item">
+				  <button class="nav-link rounded-pill" data-bs-toggle="pill" data-bs-target="#canvas">Canvas</button>
+				</li>
+			  </ul>
 			<!-- Create An Unordered List with 2 List Items -->
 
 			<div class="tab-content">
+				<div class="tab-pane fade show active" id="scratch">
+					<h3>Monke & Banana</h3>
+					<iframe class="mw-100 mh-100" src="https://scratch.mit.edu/projects/808392264/embed" frameborder="1" title="Monke & Banana" width="485px" height="402" ></iframe>
+					<h3>Platformer Game</h3>
+					<iframe class="mw-100 mh-100" src="https://scratch.mit.edu/projects/779856092/embed" frameborder="1" title="Monke & Banana" width="485px" height="402" ></iframe>
+			</div>
+				<div class="tab-pane fade" id="canvas">
+					<canvas class="border border-dark" id="canvas1" width="800" height="600"></canvas>
+				</div>
 				<!-- Create two tabs for Project Showcase
 	-  The first tab should have
 				- One header of "Monke & Banana" with the following source: https://scratch.mit.edu/projects/808392264/embed (Width 485 & Height 402)
@@ -63,7 +80,6 @@
 						- One of them should be named "Pause Animation" with an ID of "canvasPause" with a red looking appearance.
 						- Another one should be named "Play Animation"  with an ID of "canvasPlay" with a green looking appearance.  -->
 
-			</div>
 		</div>
 	</article>
 	<!-- End of coding region -->
