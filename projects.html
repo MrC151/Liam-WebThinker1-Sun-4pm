@@ -6,7 +6,7 @@
 	<title>Byte Buster Coding Club</title>
 	<script src="script/jquery.min.js"></script>
 	<script src="script/bootstrap.js"></script>
-	<script src="script/projects.js"></script>
+	<!-- <script src="script/projects.js"></script> -->
 	<link href="script/bootstrap.css" rel="stylesheet"/>
 	<link href="img/FaviconV2.png" rel="icon">
 	<link href="script/projects.css" rel="stylesheet"/>
@@ -86,5 +86,36 @@
 	<footer class="bg-dark text-light">
 		<div class="container py-2 pb-4">Done by Computhink Kids SG.</div>
 	</footer>
+	<script>
+		const canvas = document.getElementById("canvas1");
+		let ctx = canvas.getContext('2d');
+		function rgbToHex(r, g, b) {
+		r = Math.max(0, Math.min(255, r));
+		g = Math.max(0, Math.min(255, g));
+		b = Math.max(0, Math.min(255, b));
+		const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+		return `#${hex}`;
+	}
+
+	// Input RGB string
+	const rgbString = "rgb(1, 128, 50)";
+
+	// Extract the RGB values using regex
+	const rgbValues = rgbString.match(/\d+/g).map(Number); // [1, 128, 50]
+
+	// Convert to HEX
+	const hexColor = rgbToHex(...rgbValues);
+
+		const height = canvas.height
+		const width = canvas.width
+		// Begin new path
+		// ctx.fillStyle = "rgb(1, 128, 50)"
+		// ctx.fillRect(10, 10, 100, 100)
+		// ctx.fillStyle = "rgba(100, 50, 25, 0.5)"
+		// ctx.fillRect(50, 50, 100, 100)
+		gradient = ctx.create
+		ctx.font = "50px Comic Sans MS"
+		ctx.fillText("Hello world!", 50, 150)
+	</script>
 </body>
 </html>
