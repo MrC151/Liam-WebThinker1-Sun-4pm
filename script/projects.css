@@ -9,3 +9,34 @@
 		height:60vh;
 	}
 }
+#colorPalette {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #000;
+	cursor: pointer;
+	margin-bottom: 10px;
+	background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+.canvas-container {
+    display: flex; /* Use Flexbox to align items */
+    position: relative; /* Positioning context for absolute elements */
+    width: 800px; /* Match the width of the canvas */
+    height: 600px; /* Match the height of the canvas */
+}
+canvas {
+    flex: 1; /* Allow the canvas to take up available space */
+    border: 1px solid #000; /* Optional: Visualize the canvas border */
+}
+
+.controls {
+    display: flex;
+    flex-direction: column; /* Stack buttons and palette vertically */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: flex-start; /* Align items to the left */
+    margin-left: 10px; /* Space between canvas and controls */
+}
+
+#colorPalette {
+    margin-top: 10px; /* Space between buttons and color palette */
+}

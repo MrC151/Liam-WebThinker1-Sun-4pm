@@ -3,13 +3,18 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width"/>
-	<title>Byte Buster Coding Club</title>
+	<title>Past Projects</title>
 	<script src="script/jquery.min.js"></script>
 	<script src="script/bootstrap.js"></script>
 	<!-- <script src="script/projects.js"></script> -->
 	<link href="script/bootstrap.css" rel="stylesheet"/>
-	<link href="img/FaviconV2.png" rel="icon">
+	<link href="img/FaviconV3.svg" rel="icon">
 	<link href="script/projects.css" rel="stylesheet"/>
+	<link href="script/clock.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
 	<header>
@@ -17,7 +22,7 @@
 			<div class="container-fluid">
 				<a class="navbar-brand" href="index.html">
 					<img src="img/LogoV3.svg" alt="logo" class="d-inline-block" style="max-height:3rem">
-					<span class="d-none d-sm-inline-block align-middle">Byte Buster<small class="d-block lh-xs fs-7">Coding Club</small></span></a>
+					<span class="d-none d-sm-inline-block align-middle">Basic Blocks<small class="d-block lh-xs fs-7">Coding Club</small></span></a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navlinks">
 					<ul class="navbar-nav mr-auto mb-2 mb-lg-0">
@@ -28,6 +33,20 @@
 						<li class="nav-item"><a class="nav-link active" href="projects.html">Past Projects</a></li>
 						<li class="nav-item"><a class="nav-link" href="contacts.html">Contact Us</a></li>
 					</ul>
+					<div class="clock ml-5" id="clock">00:00:00</div>
+					<div class="dropdown me-2">
+					  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+						  Select Timezone
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="timezone-select">
+						  <li><a class="dropdown-item" href="#" data-value="local">Local Time</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="UTC">UTC</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="America/New_York">New York (EST)</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="Europe/London">London (GMT)</a></li>
+						  <li><a class="dropdown-item" href="#" data-value="Asia/Tokyo">Tokyo (JST)</a></li>
+					  </ul>
+				  </div>
+					<button id="toggle-format">Switch to 12-Hour</button>
 				</div>
 			</div>
 		</nav>
@@ -66,9 +85,39 @@
 					<h3>Platformer Game</h3>
 					<iframe class="mw-100 mh-100" src="https://scratch.mit.edu/projects/779856092/embed" frameborder="1" title="Monke & Banana" width="485px" height="402" ></iframe>
 			</div>
-				<div class="tab-pane fade" id="canvas">
+			<div class="tab-pane fade" id="canvas">
+				<div class="canvas-container">
 					<canvas class="border border-dark" id="canvas1" width="800" height="600"></canvas>
+					<div class="controls">
+						<button class="btn btn-danger" id="resetColor">Reset Color</button>
+						<button class="btn btn-primary" id="clearButton">Clear Canvas</button>
+						<button class="btn btn-secondary" id="addTextButton">Add Text</button>
+
+						<button class="btn btn-warning" id="eraserButton">Eraser</button> <!-- Eraser button -->
+
+						<div id="colorPalette"></div>
+					</div>
+					<div class="modal fade" id="textModal" tabindex="-1" aria-labelledby="textModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="textModalLabel">Add Text</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span>&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<input type="text" id="textInput" class="form-control" placeholder="Enter your text here">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-primary" id="submitTextButton">Add Text</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+			</div>
 				<!-- Create two tabs for Project Showcase
 	-  The first tab should have
 				- One header of "Monke & Banana" with the following source: https://scratch.mit.edu/projects/808392264/embed (Width 485 & Height 402)
@@ -82,40 +131,143 @@
 
 		</div>
 	</article>
+	<script src="script/clock.js"></script>
 	<!-- End of coding region -->
 	<footer class="bg-dark text-light">
 		<div class="container py-2 pb-4">Done by Computhink Kids SG.</div>
 	</footer>
 	<script>
-		const canvas = document.getElementById("canvas1");
-		let ctx = canvas.getContext('2d');
-		function rgbToHex(r, g, b) {
-		r = Math.max(0, Math.min(255, r));
-		g = Math.max(0, Math.min(255, g));
-		b = Math.max(0, Math.min(255, b));
-		const hex = ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
-		return `#${hex}`;
-	}
+		const canvas = document.getElementById('canvas1');
+		const ctx = canvas.getContext('2d');
 
-	// Input RGB string
-	const rgbString = "rgb(1, 128, 50)";
+		let isDrawing = false;
+		let lastX = 0;
+		let lastY = 0;
+		let strokeColor = 'black';
+		let isErasing = false; // Flag for eraser mode
 
-	// Extract the RGB values using regex
-	const rgbValues = rgbString.match(/\d+/g).map(Number); // [1, 128, 50]
+		// Start drawing
+		canvas.addEventListener('mousedown', (event) => {
+			isDrawing = true;
+			lastX = event.offsetX;
+			lastY = event.offsetY;
+		});
 
-	// Convert to HEX
-	const hexColor = rgbToHex(...rgbValues);
+		// Stop drawing
+		canvas.addEventListener('mouseup', () => {
+			isDrawing = false;
+			ctx.beginPath(); // Reset the current path
+		});
 
-		const height = canvas.height
-		const width = canvas.width
-		// Begin new path
-		// ctx.fillStyle = "rgb(1, 128, 50)"
-		// ctx.fillRect(10, 10, 100, 100)
-		// ctx.fillStyle = "rgba(100, 50, 25, 0.5)"
-		// ctx.fillRect(50, 50, 100, 100)
-		gradient = ctx.create
-		ctx.font = "50px Comic Sans MS"
-		ctx.fillText("Hello world!", 50, 150)
-	</script>
+		// Draw on the canvas or erase
+		canvas.addEventListener('mousemove', (event) => {
+			if (!isDrawing) return; // Exit if not drawing
+
+			ctx.lineWidth = isErasing ? 10 : 2; // Set width for eraser
+			ctx.beginPath(); // Start a new path
+			ctx.moveTo(lastX, lastY); // Move to the last position
+			ctx.lineTo(event.offsetX, event.offsetY); // Draw a line to the current position
+
+			if (isErasing) {
+				ctx.globalCompositeOperation = 'destination-out'; // Erase lines
+			} else {
+				ctx.strokeStyle = strokeColor; // Set line color for drawing
+				ctx.globalCompositeOperation = 'source-over'; // Default mode for drawing
+			}
+
+			ctx.stroke(); // Apply the stroke
+			lastX = event.offsetX; // Update the last position
+			lastY = event.offsetY; // Update the last position
+		});
+
+		// Clear the canvas
+		function clearCanvas() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+		}
+
+		// Add event listener to the clear button
+		document.getElementById('clearButton').addEventListener('click', clearCanvas);
+
+		// Update color when clicking on the color palette
+		document.getElementById('colorPalette').addEventListener('click', (event) => {
+			const rect = event.target.getBoundingClientRect();
+			const x = event.clientX - rect.left; // Get the x position relative to the palette
+			const y = event.clientY - rect.top; // Get the y position relative to the palette
+
+			// Create a gradient directly on the color palette
+			const gradient = ctx.createLinearGradient(0, 0, 300, 0);
+			gradient.addColorStop(0, 'red');
+			gradient.addColorStop(0.17, 'orange');
+			gradient.addColorStop(0.33, 'yellow');
+			gradient.addColorStop(0.5, 'green');
+			gradient.addColorStop(0.67, 'blue');
+			gradient.addColorStop(0.83, 'indigo');
+			gradient.addColorStop(1, 'violet');
+
+			// Create a temporary canvas to get the color
+			const colorPaletteCanvas = document.createElement('canvas');
+			colorPaletteCanvas.width = 300;
+			colorPaletteCanvas.height = 30;
+			const colorCtx = colorPaletteCanvas.getContext('2d');
+			colorCtx.fillStyle = gradient;
+			colorCtx.fillRect(0, 0, colorPaletteCanvas.width, colorPaletteCanvas.height);
+
+			// Get color data from the palette
+			const imageData = colorCtx.getImageData(x, y, 1, 1).data; // Get color data at that position
+			strokeColor = `rgba(${imageData[0]}, ${imageData[1]}, ${imageData[2]}, 255)`; // Set strokeColor
+		});
+
+		// Reset color function
+		function resetColor() {
+			strokeColor = 'black'; // Reset stroke color to black
+		}
+
+		// Add event listener to the reset color button
+		document.getElementById('resetColor').addEventListener('click', resetColor);
+
+		// Toggle eraser functionality
+		function toggleEraser() {
+			isErasing = !isErasing; // Toggle eraser state
+			const eraserButton = document.getElementById('eraserButton');
+			eraserButton.classList.toggle('active', isErasing); // Optional: Add a visual cue
+			eraserButton.innerText = isErasing ? 'Draw' : 'Eraser'; // Change button text
+		}
+
+		// Add event listener to the eraser button
+		document.getElementById('eraserButton').addEventListener('click', toggleEraser);
+
+		// Open modal when "Add Text" button is clicked
+		document.getElementById('addTextButton').addEventListener('click', () => {
+			$('#textModal').modal('show'); // Show modal for text input
+		});
+
+		// Function to generate random coordinates for text
+		function getRandomCoordinates() {
+			const padding = 20; // Padding from canvas edges
+			const x = Math.random() * (canvas.width - padding * 2) + padding; // Random X within canvas
+			const y = Math.random() * (canvas.height - padding * 2) + padding; // Random Y within canvas
+			return { x, y };
+		}
+
+		// Add text to canvas when the user submits from modal
+		document.getElementById('submitTextButton').addEventListener('click', () => {
+			const textInput = document.getElementById('textInput').value;
+			if (textInput) {
+				const { x, y } = getRandomCoordinates(); // Get random coordinates for text
+				ctx.font = "20px Arial"; // Set font style
+				ctx.fillStyle = strokeColor; // Use current stroke color for text
+				ctx.fillText(textInput, x, y); // Draw text at the random position
+				$('#textModal').modal('hide'); // Hide the modal after adding text
+				document.getElementById('textInput').value = ''; // Clear input field
+			} else {
+				alert("Please enter some text."); // Alert if text input is empty
+			}
+		});
+
+
+
+
+
+</script>
 </body>
 </html>

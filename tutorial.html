@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>Byte Buster Coding Club</title>
+	<title>Tutorial</title>
 	<script src="/script/jquery.min.js"></script>
 	<script src="/script/bootstrap.js"></script>
 	<script src="/script/projects.js"></script>
 	<link href="/script/bootstrap.css" rel="stylesheet" />
-	<link href="img/FaviconV2.png" rel="icon">
+	<link href="img/FaviconV3.svg" rel="icon">
 	<link href="/script/projects.css" rel="stylesheet" />
 	<link href="/script/tutorial.css" rel="stylesheet" />
 </head>
@@ -17,8 +17,8 @@
 		<nav class="navbar navbar-dark navbar-expand-lg bg-primary">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/index.html">
-					<img src="/img/logo-bbcc.png" alt="logo" class="d-inline-block" style="max-height:3rem">
-					<span class="d-none d-sm-inline-block align-middle">Byte Buster<small class="d-block lh-xs fs-7">Coding Club</small></span>
+					<img src="/img/FaviconV3.svg" alt="logo" class="d-inline-block" style="max-height:3rem">
+					<span class="d-none d-sm-inline-block align-middle">Basic Blocks<small class="d-block lh-xs fs-7">Coding Club</small></span>
 				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navlinks"><span class="navbar-toggler-icon"></span></button>
 				<div class="collapse navbar-collapse" id="navlinks">
@@ -54,7 +54,15 @@
 		<!-- Key section -->
 		<div class="container py-3 pb-4">
 			<!-- Create a navigation tab with 2 navigation pills -->
-
+			<div class="container py-3 pb-4">
+				<ul class="nav nav-pills mb-3">
+					<li class="nav-item">
+					  <button class="nav-link rounded-pill active" data-bs-toggle="pill" data-bs-target="#tab1">What is embedded content?</button>
+					</li>
+					<li class="nav-item">
+					  <button class="nav-link rounded-pill" data-bs-toggle="pill" data-bs-target="#tab2">How to embed content</button>
+					</li>
+				  </ul>
 			<!-- First tab has been created for you -->
 			<div class="tab-content">
 				<div class="tab-pane fade show active" id="tab1">
@@ -87,40 +95,47 @@
 								</div>
 							</div>
 
-							<!--
-								Let's create the remaining instructions!
+							
+								<!-- Let's create the remaining instructions! -->
 								
-								1. Iframe - iframe is a HTML Tag that allow us to specify the link to our video!
+								<p>1. Iframe - iframe is a HTML Tag that allow us to specify the link to our video!
 								Iframe Tag:
 									- iframe is a html element that is used to create an inline frame that allows the display another webpage or document within the current page
 									- The basic code for an iframe tag looks as follows: <br><code>&lt;iframe src="" title=""&gt;&lt;/iframe&gt;</code>
 									- <b>src</b> represents the source of the video.Hence to link the desired website or video, we will just have to enter the appropriate url within the quotation marks “ “.
-									- <b>title</b> is used to provide short description of the content that is currently displayed. User will be able to see the title when they hover over the content
+									- <b>title</b> is used to provide short description of the content that is currently displayed. User will be able to see the title when they hover over the content</
 
-								2. Iframe Attributes - We will be talking about iframe attributes that allows for the sizing of the frame
+								<p>2. Iframe Attributes - We will be talking about iframe attributes that allows for the sizing of the frame
 								Iframe Attributes:
 									- <b>Height & Width</b> will be the attribute we will be using to size our embedded content.<br> <code>&lt;iframe src="" height=“500” width=“500” title=""&gt;&lt;/iframe&gt;</code><br>
 									- <b>height</b> represents the vertical length of the frame displaying the video. Height is specific in terms of “pixel” hence the code will have the frame of the video to a height of 500 pixels. Default value without specifying would be 150 pixels.
-									- <b>width</b> represents the horizontal length of the frame displaying the video. Width is also specified in terms of “pixel” Default value would be 300 pixels instead.
+									- <b>width</b> represents the horizontal length of the frame displaying the video. Width is also specified in terms of “pixel” Default value would be 300 pixels instead.</p>
 
-								3. Bootstrap classes - We will be talking about Bootstrap classes to suit smaller screens such as mobile devices.
+								<p>3. Bootstrap classes - We will be talking about Bootstrap classes to suit smaller screens such as mobile devices.
 								Bootstrap classes:
 									- <b>Height & Width</b> will be the attribute we will be using to size our embedded content.<br> <code>&lt;iframe src="" class="mw-100 mh-100" height=“500” width=“500” title=""&gt;&lt;/iframe&gt;</code><br>
 									- <b>mh</b> represents the maximum height of the frame displaying the video. 100 represents 100% in size relative to its parent element (i.e., If the website was accessed on a smaller device, the frame for the content would take the size of the screen)
-									- <b>mw</b> represents the maximum width of the frame displaying the video. 100 represents 100% in size relative to its parent element
-							-->
+									- <b>mw</b> represents the maximum width of the frame displaying the video. 100 represents 100% in size relative to its parent element</p>
+							
 						</div>
 					</div>
 				</div>
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="tab2">
+					<h3 class="h4"></h3>
+	
+					<div class="px-3 py-4 bg-light bg-opacity-25">
+						<div class="container">
+							<div class="row align-items-center">
 				<!-- Code 2nd Tab here -->
-				<!-- 
+				
 					Embedded Video:
 					Link: https://www.youtube.com/embed/s4BibernJxU
 					Width: 500
 					Height: 500
 					Class: mw-100 mh-100
 					Title: How to use Iframe
-				 -->
+				
 			</div>
 		</div>
 	</article>
